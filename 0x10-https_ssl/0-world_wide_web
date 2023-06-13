@@ -4,14 +4,14 @@
 print_text()
 {
       DIGT=$(dig "$DOMAIN" | awk '/ANSWER SECTION:/ { getline; print $4 }')
-      IPW=$(dig +short "www."$DOMAIN | tail -n1)
-      echo "The subdomain www is a A record and points to $IPW"
-      IPL=$(dig +short "lb-01."$DOMAIN | tail -n1)
-      echo "The subdomain lb-01 is a A record and points to $IPL"
-      IPW1=$(dig +short "web-01."$DOMAIN | tail -n1)
-      echo "The subdomain web-01 is a A record and points to $IPW1"
-      IPW2=$(dig +short "web-02."$DOMAIN | tail -n1)
-      echo "The subdomain web-02 is a A record and points to $IPW2"
+      www=$(dig +short "www."$DOMAIN | tail -n1)
+      echo "The subdomain www is a A record and points to $lb-01"
+      lb-01=$(dig +short "lb-01."$DOMAIN | tail -n1)
+      echo "The subdomain lb-01 is a A record and points to $lb-01"
+      web-01=$(dig +short "web-01."$DOMAIN | tail -n1)
+      echo "The subdomain web-01 is a A record and points to $web-01"
+      web-02=$(dig +short "web-02."$DOMAIN | tail -n1)
+      echo "The subdomain web-02 is a A record and points to $web-02"
 }
 if [ -z "$2" ]
 then
